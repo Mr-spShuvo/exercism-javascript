@@ -3,6 +3,7 @@
 // convenience to get you started writing code faster.
 //
 
-export const decodedValue = () => {
-  throw new Error("Remove this statement and implement this function");
+export const decodedValue = ([colorOne, colorTwo]) => {
+  const COLORS = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
+  return Number(`${COLORS.indexOf(colorOne)}${COLORS.indexOf(colorTwo)}`);
 };
