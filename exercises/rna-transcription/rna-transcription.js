@@ -3,6 +3,14 @@
 // convenience to get you started writing code faster.
 //
 
-export const toRna = () => {
-  throw new Error("Remove this statement and implement this function");
-};
+export const toRna = strand =>
+  strand
+    .split('')
+    .map(s => {
+      if (s === 'G') return 'C';
+      if (s === 'C') return 'G';
+      if (s === 'T') return 'A';
+      if (s === 'A') return 'U';
+      return s;
+    })
+    .join('');
