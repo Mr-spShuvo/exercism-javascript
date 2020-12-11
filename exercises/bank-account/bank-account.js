@@ -4,37 +4,46 @@
 //
 
 export class BankAccount {
-
   constructor() {
-    throw new Error('Remove this statement and implement this function');
+    this.account = {
+      isActive: false,
+      balance: 0
+    };
   }
 
   open() {
-    throw new Error('Remove this statement and implement this function');
+    if (this.account.isActive) throw new ValueError();
+    this.account.isActive = true;
+    this.account.balance = 0;
   }
 
   close() {
-    throw new Error('Remove this statement and implement this function');
+    if (!this.account.isActive) throw new ValueError();
+    this.account.isActive = false;
+    this.account.balance = 0;
   }
 
-  deposit() {
-    throw new Error('Remove this statement and implement this function');
+  deposit(amount) {
+    if (!this.account.isActive) throw new ValueError();
+    if (amount <= 0) throw new ValueError();
+    this.account.balance += amount;
   }
 
-  withdraw() {
-    throw new Error('Remove this statement and implement this function');
+  withdraw(amount) {
+    if (!this.account.isActive) throw new ValueError();
+    if (amount <= 0) throw new ValueError();
+    if (this.account.balance < amount) throw new ValueError();
+    this.account.balance -= amount;
   }
 
   get balance() {
-    throw new Error('Remove this statement and implement this function');
+    if (!this.account.isActive) throw new ValueError();
+    return this.account.balance;
   }
-
 }
 
 export class ValueError extends Error {
-
   constructor() {
     super('Bank account error');
   }
-
 }
